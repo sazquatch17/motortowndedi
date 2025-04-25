@@ -1,8 +1,6 @@
 # SteamCMD in Docker optimized for Unraid
 This Docker will download and install SteamCMD and the according game that is pulled via specifying the Tag.
 
-**Please see the different Tags/Branches which games are available.**
-
 ## Example Env params for CS:Source
 | Name | Value | Example |
 | --- | --- | --- |
@@ -18,23 +16,4 @@ This Docker will download and install SteamCMD and the according game that is pu
 | USERNAME | Leave blank for anonymous login | blank |
 | PASSWRD | Leave blank for anonymous login | blank |
 
-## Run example for CS:Source
-```
-docker run --name CSSource -d \
-	-p 27015:27015 -p 27015:27015/udp \
-	--env 'GAME_ID=232330' \
-	--env 'GAME_NAME=cstrike' \
-	--env 'GAME_PORT=27015' \
-	--env 'GAME_PARAMS=-secure +maxplayers 32 +map de_dust2' \
-	--env 'UID=99' \
-	--env 'GID=100' \
-	--volume /path/to/steamcmd:/serverdata/steamcmd \
-	--volume /path/to/cstrikesource:/serverdata/serverfiles \
-	ich777/steamcmd:latest
-```
-
-This Docker was mainly edited for better use with Unraid, if you don't use Unraid you should definitely try it!
-
-This Docker is forked from mattieserver, thank you for this wonderfull Docker.
-
-#### Support Thread: https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/
+This Docker is forked from mattieserver, ich777 and nodiaque, thank you for this wonderfull Docker.
