@@ -1,0 +1,19 @@
+services:
+  motortowndedicated:
+    image: motortowndedicated
+    build: .
+    container_name: motortowndedicated
+    ports:
+      - "27015:27015"
+      - "27015:27015/UDP"
+      - "7777:7777"
+      - "7777:7777/UDP"
+      - "8998:8080"
+    environment:
+      - USERNAME=""
+      - PASSWRD=""
+      - GAME_ID="2223650"
+      - GAME_ID_ARGS="-beta test2 -betapassword motortowndedi"
+    volumes:
+      - /mnt/user/appdata/motortowndedicated:/serverdata/serverfiles
+      - /mnt/user/appdata/steamcmd:/serverdata/steamcmd
