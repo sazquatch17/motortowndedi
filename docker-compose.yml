@@ -1,7 +1,12 @@
 services:
   motortowndedicated:
+    build:
+      context: .
+      args:
+        - GAME_ID=${GAME_ID}
+        - GAME_ID_ARGS=${GAME_ID_ARGS}
+        - GAME_PARAMS=${GAME_PARAMS}
     image: motortowndedicated
-    build: .
     container_name: motortowndedicated
     ports:
       - "27015:27015"
@@ -12,8 +17,9 @@ services:
     environment:
       - USERNAME=${STEAM_USERNAME}
       - PASSWRD=${STEAM_PASSWORD}
-      - GAME_ID="2223650"
-      - GAME_ID_ARGS="-beta test -betapassword motortowndedi"
+      - GAME_ID=${GAME_ID}
+      - GAME_ID_ARGS=${GAME_ID_ARGS}
+      - GAME_PARAMS=${GAME_PARAMS}
     volumes:
       - /mnt/user/appdata/motortowndedicated:/serverdata/serverfiles
       - /mnt/user/appdata/steamcmd:/serverdata/steamcmd

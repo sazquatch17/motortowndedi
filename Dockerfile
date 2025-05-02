@@ -8,8 +8,11 @@ ENV GE_PROTON_URL="https://github.com/GloriousEggroll/proton-ge-custom/releases/
 ENV DATA_DIR="/serverdata"
 ENV STEAMCMD_DIR="${DATA_DIR}/steamcmd"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
-ENV GAME_ID="2223650"
-ENV GAME_ID_ARGS="-beta test2 -betapassword motortowndedi"
+
+ARG GAME_ID
+ENV GAME_ID=${GAME_ID}
+ARG GAME_ID_ARGS
+ENV GAME_ID_ARGS=${GAME_ID_ARGS}
 
 ENV ASTEAM_PATH="${DATA_DIR}/Steam"
 ENV STEAM_COMPAT_CLIENT_INSTALL_PATH="${ASTEAM_PATH}"
@@ -20,7 +23,8 @@ ENV BACKUP="false"
 ENV BACKUP_INTERVAL=120
 ENV BACKUPS_TO_KEEP=12
 ENV VALIDATE=""
-ENV GAME_PARAMS="Jeju_World?listen? -server -log -useperfthreads"
+ARG GAME_PARAMS
+ENV GAME_PARAMS=${GAME_PARAMS}
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
@@ -66,7 +70,7 @@ RUN mkdir $DATA_DIR && \
     chown -R $USER $DATA_DIR
 
 ADD /scripts/ /opt/scripts/
-RUN chmod -R 770 /opt/scripts/
+RUN chmod -R $DATA_PERM /opt/scripts/
 
 RUN mkdir $STEAMCMD_DIR && \
     mkdir $SERVER_DIR && \
