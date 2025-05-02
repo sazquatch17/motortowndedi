@@ -85,7 +85,7 @@ fi
 
 echo "---Prepare Server---"
 chmod -R ${DATA_PERM} ${DATA_DIR}
-cd cd ${SERVER_DIR}
+cd ${SERVER_DIR}
 cp **/*.dll ${SERVER_DIR}/MotorTown/Binaries/Win64/
 echo "---Server ready---"
 
