@@ -10,8 +10,8 @@ services:
       - "7777:7777/UDP"
       - "8998:8080"
     environment:
-      - USERNAME=""
-      - PASSWRD=""
+      - USERNAME=${STEAM_USERNAME}
+      - PASSWRD=${STEAM_PASSWORD}
       - GAME_ID="2223650"
       - GAME_ID_ARGS="-beta test -betapassword motortowndedi"
     volumes:
