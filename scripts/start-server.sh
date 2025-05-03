@@ -5,11 +5,14 @@ timestamp () {
   date +"%Y-%m-%d %H:%M:%S,%3N"
 }
 
+echo "---Checking if SteamCMD exist---"
 if [ ! -f ${STEAMCMD_DIR}/steamcmd.sh ]; then
   echo "SteamCMD not found!"
   wget -q -O ${STEAMCMD_DIR}/steamcmd_linux.tar.gz http://media.steampowered.com/client/steamcmd_linux.tar.gz 
   tar --directory ${STEAMCMD_DIR} -xvzf /serverdata/steamcmd/steamcmd_linux.tar.gz
   rm ${STEAMCMD_DIR}/steamcmd_linux.tar.gz
+else
+  echo "SteamCMD found!"
 fi
 
 echo "---Update SteamCMD---"
@@ -85,8 +88,8 @@ fi
 
 echo "---Prepare Server---"
 chmod -R ${DATA_PERM} ${DATA_DIR}
-cd cd ${SERVER_DIR}
-cp **/*.dll ${SERVER_DIR}/MotorTown/Binaries/Win64/
+cd ${SERVER_DIR}
+find . -type f -name "*.dll" -exec cp {} "${SERVER_DIR}/MotorTown/Binaries/Win64/" \;
 echo "---Server ready---"
 
 
