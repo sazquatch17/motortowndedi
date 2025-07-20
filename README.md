@@ -16,6 +16,7 @@ This Docker container installs SteamCMD and downloads the game specified via env
 | UID | User Identifier | 99 |
 | GID | Group Identifier | 100 |
 | VALIDATE | Validates the game data | blank |
+| ICON_PATH | The icon for the game is provided in this repository, change the path in the `.env` and you will see it the the docker tab. | "/mnt/user/.../motortown.png"  |
 
 > 💡 **Note:** The environment variables shown above should be set in a `.env` file.  
 > You can start by copying the provided `.env.example` to `.env` and then customizing the values as needed.
@@ -44,7 +45,7 @@ This Docker container installs SteamCMD and downloads the game specified via env
 - Make sure ports are correctly forwarded in Unraid.
 - Steam Guard codes may require interactive login using the container shell. (This could probably use a rework).
 - The `.env` file is already in the `.gitignore` so the changes will not be reflected if you update the repository.
-
+- If the `icon` file is not showed, change the path accordingly and recreate the container.
 
 ## 🙏 Credits
 This Docker is forked from sazquatch17, mattieserver, ich777, nodiaque, thank you for this wonderfull Docker.
