@@ -8,6 +8,7 @@ services:
         - GAME_PARAMS=${GAME_PARAMS}
     image: motortowndedicated
     container_name: motortowndedicated
+    network_mode: bridge
     ports:
       - "27015:27015"
       - "27015:27015/UDP"
@@ -23,3 +24,5 @@ services:
     volumes:
       - /mnt/user/appdata/motortowndedicated:/serverdata/serverfiles
       - /mnt/user/appdata/steamcmd:/serverdata/steamcmd
+    labels:
+      - "net.unraid.docker.icon=${ICON_PATH}"
